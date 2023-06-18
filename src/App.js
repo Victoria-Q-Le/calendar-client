@@ -1,7 +1,11 @@
 import './App.css';
-import { useSession, useSupabaseClient, useSessionContext } from '@supabase/auth-helpers-react';
+import { useSession, useSupabaseClient, useSessionContext } from '@supabase/auth-helpers-react';import DateTimePicker from 'react-datetime-picker';
+import { useState } from 'react';
 
 function App() {
+  const [start, setStart] = useState(new Date())
+  const [end, setEnd] = useState(new Date())
+
   const session = useSession() //tokens, when session exists we have a user  
   const supabase = useSupabaseClient() //talk to supabase 
   const {isLoading} = useSessionContext()
@@ -37,6 +41,7 @@ function App() {
           ? 
           <>
             <h2>Hey there, {session.user.email}</h2>
+            <p onChange={setStart} value={start}>Choose your appointment date and time</p>
             <button onClick={() => signOut()}></button>
           </>
           :
