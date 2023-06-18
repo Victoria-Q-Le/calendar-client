@@ -3,13 +3,13 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
 function App() {
   const session = useSession() //tokens, when session exists we have a user  
-  const supabase = useSupabaseClient //talk to supabase 
+  const supabase = useSupabaseClient() //talk to supabase 
 
   async function googleSignIn() {
     await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: {
-        //scope allow to access specifc part of the provider, in this case google calendar 
+      options: { //scopes allows access to specific part of the provider
+
       }
     })
   }
