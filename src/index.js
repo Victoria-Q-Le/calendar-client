@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* Allow the app to talk to supabase in any compononent */}
-    <SessionContextProvider> 
+    <SessionContextProvider supabaseClient={supabase}> 
       <App />
     </SessionContextProvider>
   </React.StrictMode>
